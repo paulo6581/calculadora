@@ -2,26 +2,25 @@ function criaCalculadora() {
     return {
         display: document.querySelector('.display'),
 
-        inicia() {
-            this.clickbutoes();
-            this.pressEnter();
+        get inicia() {
+            this.clickbotoes;
+            this.keyEnter;
         },
 
-        pressEnter() {
+        get keyEnter() {
             this.display.addEventListener('keyup', (e) => {
-                if (e.keyCode === 13) {
-                    this.realizaConta();
+                if(e.keyCode === 13) {
+                    this.realizaConta;
                 }
             });
         },
 
-        realizaConta() {
-            let conta = this.display.value
+        get realizaConta() {
+            let conta = this.display.value;
 
             try {
                 conta = eval(conta);
-
-                if (!conta) {
+                if(!conta) {
                     alert('Conta inválida!');
                     return;
                 }
@@ -33,16 +32,15 @@ function criaCalculadora() {
             }
         },
 
-        clearDisplay() {
+        get clearDisplay() {
             this.display.value = '';
         },
 
-        deleteOne() {
-            this.display.value = this.display.value.slice(0, -1); // seleciona elementos de um array ou string
+        get deleteOne() {
+            this.display.value = this.display.value.slice(0, -1);
         },
 
-
-        clickbutoes() {
+         get clickbotoes() {
             document.addEventListener('click', (e) => {
                 const elemento = e.target;
 
@@ -51,25 +49,23 @@ function criaCalculadora() {
                 }
 
                 if (elemento.classList.contains('btn-clear')) {
-                    this.clearDisplay();
+                    this.clearDisplay;
                 }
 
                 if (elemento.classList.contains('btn-del')) {
-                    this.deleteOne();
+                    this.deleteOne;
                 }
 
                 if (elemento.classList.contains('btn-eq')) {
-                    this.realizaConta();
+                    this.realizaConta;
                 }
-            }); 
+            });
         },
 
         btnForDisplay(valor) {
             this.display.value += valor;
         }
-
     };
 }
-
 const calculadora = criaCalculadora();
-calculadora.inicia();
+calculadora.inicia;
